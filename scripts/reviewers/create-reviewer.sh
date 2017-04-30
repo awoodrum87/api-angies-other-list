@@ -6,12 +6,12 @@ curl "${API}${URL_PATH}" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
-  --header "Authorization: Token token=BAhJIiU5MTBiZjljYTg3NzAwOTBjZWIzZTRkODFlYzMyZGJhZgY6BkVG--6b6c7bf878090ab3e0f071c5dbc7ac5e75075804" \
+  --header "Authorization: Token token=BAhJIiUwZGRhMDk5OTI5YmM0Zjk5MDE1YWNhYTQ5MDVmZjRhZAY6BkVG--08d60a4a137dc5199595245007dfd2575200d7cf" \
   --data '{
     "reviewer": {
 
-      "username": "'"Mickey Mouse"'",
-      "industry": "'"Tourism"'"
+      "username": "'"Daisy Duck"'",
+      "industry": "'"Restaurant"'"
     }
   }'
 

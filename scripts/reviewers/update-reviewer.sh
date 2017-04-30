@@ -1,11 +1,10 @@
 #!/bin/bash
 
-curl --include --request PATCH http://localhost:4741/reviewers/2 \
+curl --include --request PATCH http://localhost:4741/reviewers/22 \
   --header "Content-Type: application/json" \
-  --header "Authorization: Token token=BAhJIiU5MTBiZjljYTg3NzAwOTBjZWIzZTRkODFlYzMyZGJhZgY6BkVG--6b6c7bf878090ab3e0f071c5dbc7ac5e75075804" \
+  --header "Authorization: Token token=BAhJIiUxZjdlZTk4ZTJhODAxYzU4ZGE2ZTc1YjNlOTkwMDNjZgY6BkVG--868add2f815ad31a955de94ee824c4603f75d86e" \
   --data '{
     "reviewer": {
-      "username": "Minnie Mouse",
       "industry": "Tourism"
     }
   }'
