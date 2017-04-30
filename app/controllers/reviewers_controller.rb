@@ -17,9 +17,6 @@ class ReviewersController < OpenReadController
   # POST /reviewers
   def create
     @reviewer = current_user.build_reviewer(reviewer_params)
-    # @reviewer = current_user.reviewer.build(reviewer_params)
-    # @reviewer = Reviewer.new(reviewer_params)
-
     if @reviewer.save
       render json: @reviewer, status: :created
 
@@ -53,7 +50,6 @@ class ReviewersController < OpenReadController
     # Use callbacks to share common setup or constraints between actions.
     def set_reviewer
       @reviewer = current_user.reviewer(params[:id])
-      # @reviewer = current_user.reviewer.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

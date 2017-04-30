@@ -2,8 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:update, :destroy]
 
   def set_review
-    #@review = current_user.reviews.find(params[:id])
-    @review = Review.find(params[:id])
+    @review = current_user.reviews.find(params[:id])
   end
 
   def index
@@ -16,8 +15,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    #@review = current_user.reviews.build(review_params)
-    @review = Review.new(review_params)
+    @review = current_user.reviews.build(review_params)
+    # @review = Review.new(review_params)
 
     if @review.save
       render json: @review, status: :created

@@ -8,9 +8,9 @@ curl "${API}${URL_PATH}" \
   --header "Content-Type: application/json" \
   --data '{
     "review": {
-      "reviewer_id": "2",
-      "review_date": "28-04-2017",
-      "review_text": "Daisy eats all of her food then complains so she gets free food"
+      "reviewer_id": "1",
+      "review_date": "30-04-2017",
+      "review_text": "12:28 pm attempt at curl request"
     }
   }'
 
