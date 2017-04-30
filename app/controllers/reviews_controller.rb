@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class ReviewsController < OpenReadController
   before_action :set_review, only: [:update, :destroy]
 
   def set_review
@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = current_user.reviews.build(review_params)
+    @review = current_user.reviewer.reviews.build(review_params)
     # @review = Review.new(review_params)
 
     if @review.save
