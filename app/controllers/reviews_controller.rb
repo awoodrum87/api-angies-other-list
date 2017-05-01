@@ -16,8 +16,6 @@ class ReviewsController < OpenReadController
 
   def create
     @review = current_user.reviewer.reviews.build(review_params)
-    # @review = Review.new(review_params)
-
     if @review.save
       render json: @review, status: :created
     else
