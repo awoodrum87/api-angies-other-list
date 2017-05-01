@@ -1,10 +1,9 @@
-class ReviewsController < ApplicationController
+class ReviewsController < OpenReadController
   before_action :set_review, only: [:update, :destroy]
 
   def set_review
-    @review = Review.find(params[:id])
+    @review = current_user.reviews.find(params[:id])
   end
-
 
   def index
     @reviews = Review.all
@@ -16,8 +15,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-
+    @review = current_user.reviewer.reviews.build(review_params)
     if @review.save
       render json: @review, status: :created
     else
@@ -39,6 +37,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:review_date, :review_text)
+    params.require(:review).permit(:reviewer_id, :review_date, :review_text)
   end
 end

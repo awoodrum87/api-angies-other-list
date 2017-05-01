@@ -1,10 +1,9 @@
-class ReviewersController < ApplicationController
-  before_action :set_reviewer, only: [:show, :update, :destroy]
-
+class ReviewersController < OpenReadController
+  before_action :set_reviewer, only: [:show, :destroy, :update]
   # GET /reviewers
   def index
     @reviewers = Reviewer.all
-
+    ## @reviewers = current_user.reviews
     render json: @reviewers
   end
 
@@ -15,10 +14,9 @@ class ReviewersController < ApplicationController
 
   # POST /reviewers
   def create
-    @reviewer = Reviewer.new(reviewer_params)
-
+    @reviewer = current_user.build_reviewer(reviewer_params)
     if @reviewer.save
-      render json: @reviewer, status: :created, location: @reviewer
+      render json: @reviewer, status: :created
     else
       render json: @reviewer.errors, status: :unprocessable_entity
     end
@@ -35,13 +33,19 @@ class ReviewersController < ApplicationController
 
   # DELETE /reviewers/1
   def destroy
-    @reviewer.destroy
+    # @reviewer.destroy
+    if @reviewer.destroy
+      render json: { id: @reviewer.id }
+    else
+      render json: { id: @reviewer.id }, status: :unprocessable_entity
+    end
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_reviewer
-      @reviewer = Reviewer.find(params[:id])
+      @reviewer = current_user.reviewer(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
