@@ -1,11 +1,12 @@
 #!/bin/bash
 
-curl --include --request PATCH http://localhost:4741/reviews/1 \
+curl --include --request PATCH http://localhost:4741/reviews/10 \
   --header "Content-Type: application/json" \
+  --header "Authorization: Token token=BAhJIiVjZWM3MjZmMmMzZTRlOWNkZTVhYmJhYjdmYmJiYzEyNwY6BkVG--a72ca5d0776ee1f7a2e9fc26534f57d6ff050d78" \
   --data '{
     "review": {
-      "review_date": "2017-04-27",
-      "review_text": "John Smith is a great tipper"
+      "review_date": "2017-05-02",
+      "review_text": "Update Review"
     }
   }'
 
