@@ -6,7 +6,7 @@ curl "${API}${URL_PATH}" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
-  --header "Authorization: Token token=BAhJIiUwZGRhMDk5OTI5YmM0Zjk5MDE1YWNhYTQ5MDVmZjRhZAY6BkVG--08d60a4a137dc5199595245007dfd2575200d7cf" \
+  --header "Authorization: Token token=BAhJIiVjZWM3MjZmMmMzZTRlOWNkZTVhYmJhYjdmYmJiYzEyNwY6BkVG--a72ca5d0776ee1f7a2e9fc26534f57d6ff050d78" \
   --data '{
     "reviewer": {
 
