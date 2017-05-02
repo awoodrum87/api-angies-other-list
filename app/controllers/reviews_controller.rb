@@ -6,8 +6,15 @@ class ReviewsController < OpenReadController
   end
 
   def index
+    # @reviews = current_user.reviewer.reviews.all
+    # render json: @reviews
     @reviews = Review.all
     render json: @reviews
+  end
+
+  def your_reviews
+    @yourreviews = current_user.reviews
+    render json: @yourreviews
   end
 
   def show
