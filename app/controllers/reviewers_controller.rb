@@ -13,19 +13,19 @@ class ReviewersController < OpenReadController
   end
 
   # POST /reviewers
+
+  # check if the user has a reviewer, if yes block profile creation
+  # unless current_user.reviewer...
   def create
-    # check if the user has a reviewer, if yes block profile creation
-    # unless current_user.reviewer...
-    # if current_user.reviewer, throw error (reviewer already exists)
-    if current_user.reviewer == false
+    if Reviewer.exists?
+      :unprocessable_entity
+    else
       @reviewer = current_user.build_reviewer(reviewer_params)
       if @reviewer.save
         render json: @reviewer, status: :created
       else
         render json: @reviewer.errors, status: :unprocessable_entity
       end
-    else
-      render json: @reviewer.errors, status: :unprocessable_entity
     end
   end
 
@@ -50,13 +50,13 @@ class ReviewersController < OpenReadController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reviewer
-      @reviewer = current_user.reviewer(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reviewer
+    @reviewer = current_user.reviewer(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def reviewer_params
-      params.require(:reviewer).permit(:username, :industry)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def reviewer_params
+    params.require(:reviewer).permit(:username, :industry)
+  end
 end
