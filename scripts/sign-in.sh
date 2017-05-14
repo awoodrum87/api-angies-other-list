@@ -2,8 +2,8 @@
 
 API="${API_ORIGIN:-http://localhost:4741}"
 URL_PATH="/sign-in"
-EMAIL="abc"
-PASSWORD="abc"
+EMAIL="abcdef"
+PASSWORD="abcdef"
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \

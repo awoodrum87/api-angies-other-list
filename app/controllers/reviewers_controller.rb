@@ -17,15 +17,15 @@ class ReviewersController < OpenReadController
   # check if the user has a reviewer, if yes block profile creation
   # unless current_user.reviewer...
   def create
-    if Reviewer.exists?
-      :unprocessable_entity
-    else
+    if current_user.reviewer.nil?
       @reviewer = current_user.build_reviewer(reviewer_params)
       if @reviewer.save
         render json: @reviewer, status: :created
       else
         render json: @reviewer.errors, status: :unprocessable_entity
       end
+    else
+      :unprocessable_entity
     end
   end
 
