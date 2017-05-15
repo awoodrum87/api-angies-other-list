@@ -36,6 +36,7 @@ end
 
 # Routes
 Users
+
 | Verb   | URI Pattern            | Controller#Action |
 |--------|------------------------|-------------------|
 | POST   | `/sign-up`             | `users#signup`    |
