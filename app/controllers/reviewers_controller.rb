@@ -14,8 +14,6 @@ class ReviewersController < OpenReadController
 
   # POST /reviewers
 
-  # check if the user has a reviewer, if yes block profile creation
-  # unless current_user.reviewer...
   def create
     if current_user.reviewer.nil?
       @reviewer = current_user.build_reviewer(reviewer_params)

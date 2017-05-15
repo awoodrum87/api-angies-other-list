@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/sign-in' => 'users#signin'
   delete '/sign-out/:id' => 'users#signout'
   patch '/change-password/:id' => 'users#changepw'
-  get '/your-reviews'=> 'reviews#your_reviews'
+  get '/your-reviews' => 'reviews#your_reviews'
   resources :users, only: [:index, :show]
   resources :reviews, except:[:new, :edit]
   resources :reviewers, except:[:new, :edit]
